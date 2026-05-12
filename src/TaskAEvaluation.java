@@ -35,18 +35,24 @@ public class TaskAEvaluation {
     }
     public static void processDataset(String filename) throws IOException {
         List<Candidate> originalData = DataLoader.loadCandidates(filename);
-        double bubbleTime = measureTime(originalData, "Bubble");
-        double mergeTime = measureTime(originalData, "Merge");
-        double quickTime = measureTime(originalData, "Quick");
+        List<Candidate> dataForBubble = new ArrayList<>(originalData);
+        List<Candidate> dataForMerge = new ArrayList<>(originalData);
+        List<Candidate> dataForQuick = new ArrayList<>(originalData);
+        double bubbleTime = measureTime(dataForBubble, "Bubble");
+        double mergeTime = measureTime(dataForMerge, "Merge");
+        double quickTime = measureTime(dataForQuick, "Quick");
         String datasetName = filename.substring(filename.lastIndexOf("/") + 1);
         System.out.printf("%-15s | %-15.4f | %-15.4f | %-15.4f%n",
                 datasetName, bubbleTime, mergeTime, quickTime);
 
-        List<Candidate> sortedData = new ArrayList<>(originalData);
+        List<Candidate> finalData = new ArrayList<>(originalData);
 
-        for (int i = 0; i < 10 && i < sortedData.size(); i++) {
-            TopLocations.add(sortedData.get(i));
+        QuikSort.sort(finalData, 0, finalData.size() - 1);
+
+        for (int i = 0; i < 10 && i < finalData.size(); i++) {
+            TopLocations.add(finalData.get(i));
         }
+
     }
     private static double measureTime(List<Candidate> originalData, String algoType) {
         // run 3 times to take average
