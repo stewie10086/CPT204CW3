@@ -1,7 +1,7 @@
-import algorithms.BubbleSort;
-import algorithms.MergeSort;
-import algorithms.QuikSort;
-import model.Candidate;
+import sortAlgorithms.BubbleSort;
+import sortAlgorithms.MergeSort;
+import sortAlgorithms.QuikSort;
+import entity.Candidate;
 
 import java.io.IOException;
 import java.util.ArrayList;

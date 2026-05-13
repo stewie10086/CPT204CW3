@@ -1,6 +1,6 @@
-package algorithms;
+package sortAlgorithms;
 
-import model.Candidate;
+import entity.Candidate;
 
 import java.util.List;
 

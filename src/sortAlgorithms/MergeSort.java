@@ -1,6 +1,6 @@
-package algorithms;
+package sortAlgorithms;
 
-import model.Candidate;
+import entity.Candidate;
 
 public class MergeSort {
     public static void mergeSort(Candidate[] arr, int left, int right){

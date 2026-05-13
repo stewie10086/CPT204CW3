@@ -1,6 +1,6 @@
-package algorithms;
+package sortAlgorithms;
 
-import model.Candidate;
+import entity.Candidate;
 
 public class PriorityJudge {
     public static boolean IfComeAhead(Candidate a, Candidate b){

@@ -1,5 +1,5 @@
-import model.Candidate;
-import model.Path;
+import entity.Candidate;
+import entity.Path;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
